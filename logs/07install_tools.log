@@ -1,0 +1,21 @@
+
+PLAY [Install and uninstall tools] **************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [centos1]
+
+TASK [tools : install tools for RedHat Family] **************************************************************************
+changed: [centos1] => (item=zip)
+changed: [centos1] => (item=unzip)
+ok: [centos1] => (item=gzip)
+ok: [centos1] => (item=nano)
+
+TASK [tools : install tools for Debian Family] **************************************************************************
+skipping: [centos1] => (item=zip) 
+skipping: [centos1] => (item=unzip) 
+skipping: [centos1] => (item=gzip) 
+skipping: [centos1] => (item=nano) 
+
+PLAY RECAP **************************************************************************************************************
+centos1                    : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+

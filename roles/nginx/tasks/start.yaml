@@ -1,0 +1,24 @@
+---
+- name: Check if Nginx is installed
+  package_facts:
+    manager: "auto"
+
+- name: Start Nginx service
+  become: yes
+  service:
+    name: nginx
+    state: started
+  when: "'nginx'not in ansible_facts.packages"
+- debug:
+    msg:
+      - "stage02: Start nginx service"
+
+- name: Enable autostart Nginx service
+  become: yes
+  service:
+    name: nginx
+    enabled: yes
+  when: "'nginx' not in ansible_facts.packages"
+- debug:
+    msg:
+      - "stage03: Enable nginx service"

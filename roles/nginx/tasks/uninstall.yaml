@@ -1,0 +1,14 @@
+---
+- name: stop nginx
+  become: yes
+  service:
+    name: nginx
+    state: stopped
+#    notify: "stage05: Stop nginx service"
+
+- name: uninstall nginx
+  become: yes
+  package:
+    name: nginx
+    state: absent
+#    notify: "stage06: Uninstall nginx"

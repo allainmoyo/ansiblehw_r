@@ -1,0 +1,45 @@
+
+PLAY [Install Nginx webserver] ******************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [centos1]
+
+TASK [nginx : Install EPEL repo if RedHat family] ***********************************************************************
+ok: [centos1]
+
+TASK [nginx : Install NGINX with yum if RedHat family] ******************************************************************
+ok: [centos1]
+
+TASK [nginx : debug] ****************************************************************************************************
+ok: [centos1] => {
+    "msg": [
+        "stage01: Install nginx for RedHat family"
+    ]
+}
+
+TASK [nginx : Install NGINX with apt if Debian family] ******************************************************************
+skipping: [centos1]
+
+TASK [nginx : debug] ****************************************************************************************************
+ok: [centos1] => {
+    "msg": [
+        "stage01: Install nginx for Deban family"
+    ]
+}
+
+TASK [nginx : Generate index.html file] *********************************************************************************
+ok: [centos1]
+
+TASK [nginx : Copy site source files] ***********************************************************************************
+ok: [centos1]
+
+TASK [nginx : debug] ****************************************************************************************************
+ok: [centos1] => {
+    "msg": [
+        "Copy site sources to host"
+    ]
+}
+
+PLAY RECAP **************************************************************************************************************
+centos1                    : ok=8    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+

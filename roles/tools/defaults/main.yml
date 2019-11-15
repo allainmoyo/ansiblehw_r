@@ -1,0 +1,15 @@
+---
+# defaults file for tools
+#
+#list to install ans list to uninstall
+
+list_to_install:
+  - zip
+  - unzip
+  - gzip
+  - nano
+  
+list_to_uninstall:
+  - zip
+  - unzip
+

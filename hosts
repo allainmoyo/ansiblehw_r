@@ -1,0 +1,10 @@
+[centos]
+  centos1 ansible_host=192.168.162.5 
+  centos2 ansible_host=192.168.162.6
+  centos3 ansible_host=192.168.162.7
+[ubuntu]
+  ubuntu1 ansible_host=192.168.162.4
+
+[local:children]
+  centos
+  ubuntu

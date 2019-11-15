@@ -1,0 +1,51 @@
+---
+- name: Install EPEL repo if RedHat family
+  become: yes
+  yum:
+    name: epel-release
+    state: present
+    update_cache: yes
+  when: ansible_os_family == 'RedHat'
+
+- name: Install NGINX with yum if RedHat family
+  become: yes
+  yum:
+    name: nginx
+    state: present
+    update_cache: yes
+  when: ansible_os_family == 'RedHat'
+# "ansible_pkg_mgr": "yum"
+- debug:
+    msg:
+      - "stage01: Install nginx for RedHat family"
+
+- name: Install NGINX with apt if Debian family
+  become: yes
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+    force_apt_get: yes
+  when: ansible_os_family == 'Debian'
+# "ansible_pkg_mgr": "yum"
+- debug:
+    msg:
+      - "stage01: Install nginx for Deban family"
+
+- name: Generate index.html file
+  become: yes
+  template:
+    src: index.j2
+    dest: "{{ destin_folder }}/html/index.html"
+    mode: 0555
+
+- name: Copy site source files
+  become: yes
+  copy:
+    src: html
+    dest: "{{ destin_folder }}"
+    mode: 0555
+
+- debug:
+    msg:
+      - "Copy site sources to host"

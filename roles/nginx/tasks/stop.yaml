@@ -1,0 +1,21 @@
+---
+- name: Check if Nginx is installed
+  package_facts:
+    manager: "auto"
+
+- name: stop Nginx
+  become: yes
+  service:
+    name: nginx
+    state: stopped
+#    notify: "stage05: Stop nginx service"
+#  when: "'nginx' in ansible_facts.packages"
+
+- name: disable autostart Nginx
+  become: yes
+  service:
+    name: nginx
+    enabled: no
+#    notify: "stage04: Disable nginx service"
+#  when: "'nginx' in ansible_facts.packages"
+

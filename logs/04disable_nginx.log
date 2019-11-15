@@ -1,0 +1,11 @@
+
+PLAY [install Nginx webserver] ******************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [centos2]
+ok: [centos1]
+
+PLAY RECAP **************************************************************************************************************
+centos1                    : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+centos2                    : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

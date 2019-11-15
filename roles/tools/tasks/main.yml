@@ -1,0 +1,10 @@
+---
+# tasks file for tools
+# install zip, unzip, gzip, nano
+#
+
+- include: install.yaml
+  tags: [ 'never', 'install_tools' ]
+
+- include: uninstall.yaml
+  tags: [ 'never', 'uninstall_tools' ]

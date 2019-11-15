@@ -1,0 +1,10 @@
+---
+- name: Install Nginx webserver
+  hosts:
+    - centos1
+
+#  tasks:
+#    - debug: var=hostvars[inventory_hostname]['ansible_default_ipv4']['address']
+
+  roles:
+    - { role: nginx, when: ansible_system=='Linux' }

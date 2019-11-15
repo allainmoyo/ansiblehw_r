@@ -1,0 +1,10 @@
+---
+- name: uninstall tools
+  become: yes
+  yum:
+    name: "{{ item }}"
+    state: absent
+    update_cache: yes
+#  notify: "Install {{ item }}"
+  loop: "{{ list_to_uninstall }}"
+  when: ansible_os_family == 'RedHat'
